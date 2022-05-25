@@ -1,5 +1,5 @@
 * {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
 }
 h1 {
@@ -11,8 +11,16 @@ h1 {
 }
 li {
     display: flex;
+    padding: 20px;
 }
-
+span {
+    width: 20%;
+}
+h2 {
+    width: 60%;
+    font-weight: 100;
+    font-size: 20px;
+}
 p {
     margin: 10px;
 }

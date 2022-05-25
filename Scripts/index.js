@@ -6,11 +6,10 @@ fetch("https://jsonplaceholder.typicode.com/todos/")
     console.log(toDoItems);
     const result = document.getElementById('toDoItems');
     for (var i = 0; i < toDoItems.length; i++){
-    const boolean = toDoItems[i].completed
     result.innerHTML += '<li>' +
-        '<p>' + toDoItems[i].id + '<p>' +
-        '<p>' + toDoItems[i].title + '<p>' +
-        '<p>' + toDoItems[i].completed + '<p>' +
+        '<span>' + toDoItems[i].id + '</span>' +
+        '<h2>' + toDoItems[i].title + '</h2>' +
+        '<span>' + toDoItems[i].completed + '</p>' +
     '</li>';
     }
 })
