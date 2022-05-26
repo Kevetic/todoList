@@ -1,27 +1,32 @@
-fetch("https://jsonplaceholder.typicode.com/todos/") 
-.then((res) => {
-    return res.json()
-})
-.then((toDoItems) => {
-    // console.log(toDoItems);
-    const result = document.getElementById('toDoItems');
-    for (var i = 0; i < toDoItems.length; i++){
-        result.innerHTML += '<li>' +
-        '<span>' + toDoItems[i].id + '</span>' +
-        '<h2>' + toDoItems[i].title + '</h2>' +
-        '<span id="completes">' + toDoItems[i].completed + '</p>' +
-        '</li>';
-    }
-    return toDoItems
-})
-.then((res) => {
-    for (var i = 0; i < res.length; i++){
-        let completedClr = res[i].completed
-        if( completedClr === false) {
-            document.getElementById('completes').style.color = 'red'
-        } else {
-            document.getElementById('completes').style.color = 'green'
-        }
-    }
-})
+(async () => {
+    try {
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
+      const todos = await response.json();
 
+      if (!todos) {
+        return;
+      }
+  
+      const todoItemsElement = document.getElementById("todo-item-list");
+  
+      const color = {
+        true: "green",
+        false: "red"
+      };
+  
+      todos.forEach(({ id, title, completed }) => {
+        const newHtml = `
+          <li>
+            <span>${id}</span>
+            <h2>${title}</h2>
+            <span style="color: ${color[completed]}">${completed}<span/>
+          </li>
+        `;
+  
+        todoItemsElement.innerHTML += newHtml;
+      });
+    } catch (e) {
+      console.error(e);
+    }
+  })();
+  
