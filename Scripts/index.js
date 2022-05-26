@@ -1,3 +1,6 @@
+function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 (async () => {
     try {
       const response = await fetch("https://jsonplaceholder.typicode.com/todos/");
@@ -17,9 +20,9 @@
       todos.forEach(({ id, title, completed }) => {
         const newHtml = `
           <li>
-            <span>${id}</span>
-            <h2>${title}</h2>
-            <span style="color: ${color[completed]}">${completed}<span/>
+            <span class='listID'>${id}</span>
+            <p>${capitalize(title)}</p>
+            <span class='task'>Task Completed:<span class='completes' style="color: ${color[completed]}">${completed}<span/></span>
           </li>
         `;
   

@@ -1,5 +1,5 @@
 * {
-    width: 95%;
+    width: auto;
     margin: 0 auto;
 }
 h1 {
@@ -11,20 +11,44 @@ h1 {
 }
 li {
     display: flex;
-    padding: 20px;
-}
-span {
-    width: 20%;
-}
-h2 {
-    width: 60%;
-    font-weight: 100;
+    padding: 40px;
+    box-shadow: 1px 0px 8px black;
+    margin: 20px;
+    border-radius: 10px;
+    align-items: center;
     font-size: 20px;
+    font-family: sans-serif;
+}
+li:hover {
+    background-color: pink;
+    box-shadow: 2px 2px 8px black;
+    transition: .2s;
+}
+li:nth-child(even):hover {
+    background-color: pink;
+    box-shadow: 2px 2px 8px black;
+    transition: .2s;
+}
+.task {
+    text-align: right;
+}
+.completes {
+    margin: 10px;
+}
+.listID {
+    width: 5%;
 }
 p {
     margin: 10px;
+    width: 60%;
 }
 
 li:nth-child(even) {
-    background-color: gray;
+    background-color: rgba(128, 128, 128, 0.67);
 }
+
+@media only screen and (max-width: 740px) {
+   .task {
+    text-align: left;
+   }
+  }
